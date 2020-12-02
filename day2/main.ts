@@ -3,7 +3,6 @@ import {countValidPasswords, validatePassWordOccurrence, validatePassWordPositio
 
 console.time('read input');
 const input = fileToArray('./input.txt');
-console.log(input);
 console.timeLog('read input');
 console.time('solution 1');
 console.timeLog('solution 1', countValidPasswords(input, validatePassWordOccurrence));

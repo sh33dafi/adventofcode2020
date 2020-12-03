@@ -5,6 +5,6 @@ export const fileToArrayOfNumbers = (path: string) => {
 };
 
 export const fileToArray = (path: string) => {
-    const data = fs.readFileSync(path, 'utf8');
+    const data = fs.readFileSync(path, 'utf8').trim();
     return data.split('\n').filter(v => !!v);
 };

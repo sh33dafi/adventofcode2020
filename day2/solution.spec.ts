@@ -1,7 +1,7 @@
 import {countValidPasswords, validatePassWordOccurrence, validatePassWordPosition} from './solution';
-import {fileToArray} from '../lib/read-file';
+import {fileToArrayNoEmptyLines} from '../lib/read-file';
 
-const puzzleInput = fileToArray('./day2/input.txt');
+const puzzleInput = fileToArrayNoEmptyLines('./day2/input.txt');
 const testInput = [
     '1-3 a: abcde',
     '1-3 b: cdefg',

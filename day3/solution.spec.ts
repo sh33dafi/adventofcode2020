@@ -1,8 +1,8 @@
-import {fileToArray} from '../lib/read-file';
+import {fileToArrayNoEmptyLines} from '../lib/read-file';
 import {countTreesForSlopes, countTreesOnPath, hasTree, travel} from './solution';
 
-const puzzleInput = fileToArray('./day3/input.txt');
-const puzzleInput2 = fileToArray('./day3/input2.txt');
+const puzzleInput = fileToArrayNoEmptyLines('./day3/input.txt');
+const puzzleInput2 = fileToArrayNoEmptyLines('./day3/input2.txt');
 const testInput = [
     '..##.......',
     '#...#...#..',

@@ -11,7 +11,7 @@ const input = [
     , 1456
 ];
 
-describe('Solution', () => {
+describe('day 1', () => {
     it('should find 2 values summing to 2020', () => {
         expect(findSum([40, 20, 2000], 2020)).toEqual([20, 2000]);
         expect(findSum(input, 2020)).toEqual([1721, 299]);

@@ -32,13 +32,7 @@ export const getHighestSeatId = (input: Array<string>): number => {
     return input
         .map(inp => calculateSeatInfo(inp.split('')))
         .map(info => info[2])
-        .reduce((acc, value) => {
-            let highest = acc;
-            if (value > highest) {
-                highest = value;
-            }
-            return highest;
-        }, 0);
+        .sort((a,b)=> b- a)[0]
 };
 
 export const findMissingSeats = (input: Array<string>): number => {

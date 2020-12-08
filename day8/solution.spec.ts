@@ -1,5 +1,5 @@
 import { fileToArrayNoEmptyLines} from '../lib/read-file';
-import {parseInstruction, runProgram} from './solution';
+import {fixProgram, getAccValueForProgram, parseInstruction, runProgram} from './solution';
 
 const puzInput = fileToArrayNoEmptyLines('./day8/input.txt');
 const testInput = [
@@ -13,6 +13,18 @@ const testInput = [
     'jmp -4',
     'acc +6'
 ];
+
+const correctProgram = [
+    'nop +0',
+    'acc +1',
+    'jmp +4',
+    'acc +3',
+    'jmp -3',
+    'acc -9',
+    'acc +1',
+    'nop -4',
+    'acc +6'
+]
 
 
 describe('day 8', () => {
@@ -33,18 +45,26 @@ describe('day 8', () => {
 
     describe('run program', () => {
         it('should run the program and stop when the same instruction is executed', () => {
-            expect(runProgram(testInput)).toEqual(5);
+            expect(runProgram(testInput.map(parseInstruction))).toEqual({exitCode: -8, arg: 5});
+            expect(runProgram(correctProgram.map(parseInstruction))).toEqual({exitCode: 0, arg: 8});
+        });
+    });
+
+    describe('fix progam', () => {
+        it('should fix te program', () => {
+            expect(fixProgram(testInput)).toEqual(8);
         });
     });
 
     describe('puzzle 1', () => {
         it('should return correct value', () => {
-            expect(runProgram(puzInput)).toEqual(1675);
+            expect(getAccValueForProgram(puzInput)).toEqual(1675);
         });
     });
 
     describe('puzzle 2', () => {
         it('should return correct value', () => {
+            expect(fixProgram(puzInput)).toEqual(1532)
         });
     });
 });
